@@ -1,0 +1,1129 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    --primary-red: #FD0001;
+    --text-white: #ffffff;
+    --text-dark: #1a1a1a;
+    --desktop-margin: 160px;
+    --font-header: 'Mulish', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+button,
+.btn-contact,
+.btn-hero,
+.slider-arrow,
+.dot,
+a {
+    cursor: pointer;
+    /* Fixes cursor bug natively */
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 var(--desktop-margin);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: var(--text-white);
+    font-weight: 500;
+}
+
+.nav-links a:not(.btn-contact):hover {
+    color: var(--primary-red);
+}
+
+.btn-contact {
+    padding: 8px 24px;
+    border: 3px solid var(--primary-red);
+    border-radius: 50px;
+    color: var(--primary-red) !important;
+    font-weight: 600;
+}
+
+.btn-contact:hover {
+    background-color: var(--primary-red);
+    color: var(--text-white) !important;
+}
+
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+/* This defines the wiggle movement */
+@keyframes wiggleRotate {
+
+    0%,
+    95%,
+    100% {
+        transform: rotate(0deg);
+        /* Normal position */
+    }
+
+    96% {
+        transform: rotate(5deg);
+        /* Rotate right */
+    }
+
+    97% {
+        transform: rotate(-5deg);
+        /* Rotate left */
+    }
+
+    98% {
+        transform: rotate(3deg);
+        /* Rotate right (smaller) */
+    }
+
+    99% {
+        transform: rotate(-3deg);
+        /* Rotate left (smaller) */
+    }
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url('assets/local-hero.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 var(--desktop-margin);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--text-white);
+    max-width: 1400px;
+}
+
+.hero h1 {
+    font-family: var(--font-header);
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 20px;
+    font-weight: 400;
+    white-space: nowrap;
+    margin-bottom: 40px;
+}
+
+.btn-hero {
+    display: inline-block;
+    background-color: var(--primary-red);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    font-size: 18px;
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(253, 0, 1, 0.4);
+    animation: wiggleRotate 3s infinite;
+}
+
+.btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(253, 0, 1, 0.6);
+}
+
+.divider {
+    width: 100%;
+    height: 10px;
+    background-color: var(--primary-red);
+}
+
+/* =========================================
+   4. COMMON SECTION STYLES
+   ========================================= */
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px var(--desktop-margin);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.section-header h2 {
+    font-family: var(--font-header);
+    font-size: 40px;
+    font-weight: 800;
+    color: #000;
+    margin: 0 0 1rem;
+}
+
+.section-header h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-red);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* =========================================
+   5. ESSENCE SECTION
+   ========================================= */
+.essence-section {
+    background-color: #fff;
+}
+
+.essence-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.essence-text {
+    flex: 1 1 300px;
+}
+
+.essence-text h3 {
+    font-family: var(--font-header);
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.essence-p {
+    font-family: var(--font-body);
+    font-size: 20px;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+/* Rating Components */
+.rating-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.rating-container>span:first-child {
+    margin-right: 8px;
+}
+
+.stars-container {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0px;
+}
+
+.stars-background,
+.stars-foreground {
+    display: flex;
+    color: #e0e0e0;
+}
+
+.stars-foreground {
+    color: #FFC107;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0%;
+    white-space: nowrap;
+}
+
+.stars-container svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+.review-link {
+    color: #0066cc;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    margin-left: 5px;
+}
+
+.review-count {
+    color: #0066cc;
+    font-weight: 400;
+    font-size: 14px;
+    min-width: 2em;
+    text-align: right;
+    margin-right: 4px;
+}
+
+.review-text {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+/* Slider Components */
+.slider-container {
+    flex: 1 1 300px;
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(145deg, #1a1a1a, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #ddd;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-icon {
+    font-size: 4rem;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+}
+
+.slide-text {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.slider-arrow:hover {
+    background: #fff;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background: var(--primary-red);
+    transform: scale(1.2);
+}
+
+/* =========================================
+   6. FUN / SERVICES SECTION
+   ========================================= */
+.fun-section {
+    background-color: #fff;
+}
+
+.fun-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.fun-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Static styles (hover effects disabled as per requirements) */
+    transform: none !important;
+    transition: none !important;
+    pointer-events: none !important;
+    cursor: default !important;
+}
+
+.fun-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--primary-red);
+}
+
+.fun-icon {
+    font-size: 3rem;
+    color: var(--primary-red);
+    min-width: 70px;
+    text-align: center;
+}
+
+.custom-icon-img {
+    width: 3rem;
+    height: auto;
+    filter: invert(16%) sepia(90%) saturate(6968%) hue-rotate(358deg) brightness(97%) contrast(113%);
+    /* Makes it #FD0001 */
+}
+
+.fun-content h3 {
+    font-family: var(--font-header);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: #000;
+}
+
+.fun-content p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+/* =========================================
+   7. PROMOTIONS SECTION
+   ========================================= */
+.promotions-section {
+    background-color: #0F0F0F;
+    position: relative;
+}
+
+.promotions-section::before,
+.promotions-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: var(--primary-red);
+}
+
+.promotions-section::before {
+    top: 0;
+}
+
+.promotions-section::after {
+    bottom: 0;
+}
+
+.next-promo {
+    display: none;
+}
+
+.promotions-section .section-header h2 {
+    color: var(--text-white);
+}
+
+.promotions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.promotion-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.promotion-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--primary-red);
+}
+
+/* Hover effect removed as per requirements */
+.promotion-card:hover {
+    transform: none;
+}
+
+.promotion-icon {
+    font-size: 3.5rem;
+    color: var(--primary-red);
+    margin: 0 auto 20px;
+}
+
+.promotion-card h3 {
+    font-family: var(--font-header);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.promotion-subtitle {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+    white-space: nowrap;
+}
+
+.promotion-price {
+    font-family: var(--font-header);
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--primary-red);
+    margin-bottom: 15px;
+}
+
+.currency-symbol {
+    font-size: 18px;
+
+    .currency-symbol {
+        font-size: 18px;
+        vertical-align: baseline;
+        margin-left: 2px;
+    }
+
+    margin-left: 2px;
+}
+
+.promotion-description {
+    font-family: var(--font-body);
+    font-size: 16px;
+    color: #666;
+    font-style: italic;
+}
+
+/* =========================================
+   8. EVENTS SECTION
+   ========================================= */
+.events-section {
+    background-color: #fff;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+
+.event-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 30px;
+    padding-right: 60px;
+    /* Space for AMPLIAR strip */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.event-expand {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    background-color: var(--primary-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-expand span {
+    color: #ffffff;
+    font-family: var(--font-header);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: var(--primary-red);
+}
+
+.event-card:hover {
+    transform: translateX(5px);
+}
+
+.event-icon {
+    font-size: 2.8rem;
+    color: var(--primary-red);
+    min-width: 70px;
+    text-align: center;
+}
+
+.event-content h3 {
+    font-family: var(--font-header);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.event-content p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+.hamburger-menu {
+    display: none;
+    /* Hidden on desktop */
+}
+
+/* =========================================
+   9. RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1200px) {
+    :root {
+        --desktop-margin: 60px;
+    }
+
+    .hero-subtitle {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 1024px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+        font-size: 30px;
+        color: #FFFFFF;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .essence-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .essence-text,
+    .slider-container {
+        width: 100%;
+        flex: none;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .promotions-grid,
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .promotion-subtitle {
+        white-space: normal;
+    }
+
+    .fun-card,
+    .event-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .fun-icon,
+    .event-icon {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --desktop-margin: 20px;
+    }
+
+    nav {
+        padding: 0 20px;
+        height: 80px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .hero {
+        height: 100vh;
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .section-header h2 {
+        font-size: 32px;
+    }
+
+    section {
+        padding: 60px 20px;
+        min-height: auto;
+        height: auto;
+    }
+
+    .fun-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Promotions Carousel Mobile */
+    .promotions-grid {
+        display: block;
+        position: relative;
+        min-height: auto;
+    }
+
+    .promotion-card {
+        display: none;
+        width: 100%;
+        animation: promoFade 0.5s ease;
+    }
+
+    .promotion-card.active {
+        display: block;
+    }
+
+    .next-promo {
+        display: flex !important;
+        position: relative;
+        margin: 20px auto 0;
+        left: auto;
+        right: auto;
+        top: auto;
+        transform: none;
+        background-color: #FFFFFF;
+        color: #000;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes promoFade {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .essence-text h3 {
+        font-size: 24px;
+    }
+
+    .essence-p {
+        font-size: 16px;
+    }
+
+    .slider-container {
+        height: 300px;
+    }
+
+    .slide-icon {
+        font-size: 3rem;
+    }
+
+    .slide-text {
+        font-size: 1.2rem;
+    }
+
+    .fun-card h3,
+    .promotion-card h3,
+    .event-card h3 {
+        font-size: 20px;
+    }
+
+    .promotion-price {
+        font-size: 32px;
+    }
+}
+
+@media (max-height: 700px) {
+    section {
+        min-height: auto;
+        padding: 40px var(--desktop-margin);
+    }
+}
+
+/* Mobile Menu Overlay */
+#mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #0F0F0F;
+
+    /* Animation Properties */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+
+    display: flex;
+    /* Always flex, visibility handles show/hide */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+#mobile-menu-overlay.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 35px;
+    right: var(--desktop-margin);
+    font-size: 40px;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.mobile-menu-close:hover {
+    transform: rotate(90deg);
+}
+
+.mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+}
+
+.mobile-link {
+    font-family: var(--font-body);
+    font-size: 24px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.btn-mobile-contact {
+    display: inline-block;
+    background-color: var(--primary-red);
+    color: #FFFFFF !important;
+    padding: 8px 24px;
+    border-radius: 50px;
+}
+
+/* =========================================
+   10. FOOTER
+   ========================================= */
+footer {
+    background-color: #0F0F0F;
+    color: #FFFFFF;
+}
+
+.footer-container {
+    padding: 40px var(--desktop-margin);
+    max-width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Left Column */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    /* Adds consistent spacing between children */
+}
+
+.social-icons {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-red);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    /* Ensure smooth color transition */
+}
+
+.social-btn i {
+    color: #0F0F0F;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+
+
+.social-btn:hover i {
+    color: #FFFFFF;
+}
+
+.footer-info-section {
+    margin-top: 0;
+    width: 100%;
+    max-width: 380px;
+    /* Equal width for both tables */
+}
+
+.footer-info-section h3 {
+    font-family: var(--font-header);
+    font-size: 20px;
+    text-decoration: underline;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.footer-info-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.footer-info-table td {
+    padding: 5px 0;
+    font-family: var(--font-body);
+    font-size: 16px;
+}
+
+.footer-info-table td:first-child {
+    text-align: left;
+    padding-right: 15px;
+}
+
+.footer-info-table td:last-child {
+    text-align: right;
+}
+
+/* Right Column */
+.right-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-column iframe {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.virtual-tour-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    text-decoration: underline;
+    margin-top: 5px;
+    color: #FFFFFF;
+    /* Ensure link color is white */
+}
+
+/* Bottom Section */
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    /* border-top removed */
+    border-top: none;
+}
+
+.footer-bottom p {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.legal-text {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 40px 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .social-btn {
+        width: 40px;
+        /* Ensure size stays correct */
+        height: 40px;
+    }
+}
