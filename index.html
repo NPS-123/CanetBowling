@@ -4,334 +4,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canet Bowling - Tu plan perfecto</title>
+    <title>Canet Bowling | Complejo de Ocio y Eventos</title>
+    <meta name="description"
+        content="Bolera, Karaoke, Parque Infantil y Restaurante en Canet de Berenguer. Tu plan perfecto de ocio.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Mulish:wght@400;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Mulish:wght@400;700;800&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <nav>
-        <img src="assets/CanetBowling-NoBG2.png" alt="Canet Bowling Logo" class="logo">
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo-link">
+            <img src="assets/CanetBowling-NoBG2.png" alt="Canet Bowling" class="logo">
+        </a>
         <div class="nav-links">
-            <a href="#diversion">Actividades</a>
-            <a href="#eventos">Eventos</a>
-            <a href="#menu">Menú</a>
-            <a href="#contacto" class="btn-contact">Contacto</a>
+            <a href="#diversion">ACTIVIDADES</a>
+            <a href="#eventos">EVENTOS</a>
+            <a href="#promociones">MENÚ</a>
+            <a href="#contacto" class="btn-contact">CONTÁCTANOS</a>
         </div>
         <div class="hamburger-menu" id="hamburger-btn">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-text">Tu plan perfecto en Canet de Berenguer</h1>
-            <p class="hero-subtitle hero-text">El complejo de ocio más completo de la comarca. 1.800 m² diseñados para
-                cada edad y cada momento.</p>
-            <div class="hero-btn-container hero-text">
-                <a href="#promociones" class="btn-hero">Descubre nuestras ofertas</a>
-            </div>
+            <h1 class="hero-title">TU PLAN PERFECTO<br>EN CANET.</h1>
+            <p class="hero-subtitle">1.800 m² de pura diversión con bolera, karaoke, restaurante y parque infantil. Tu
+                destino de ocio en la comarca.</p>
+            <a href="#promociones" class="btn-primary">Descubre Ofertas</a>
         </div>
     </header>
 
-    <div class="divider"></div>
-
+    <!-- Essence Section -->
     <section class="essence-section">
-        <div class="section-header">
-            <h2>Nuestra Esencia</h2>
-        </div>
+        <!-- No separate section header to reduce noise, integrated into layout -->
 
-        <div class="essence-grid">
-            <div class="essence-text">
-                <h3>Más de 20 años de diversión 🎳</h3>
+        <div class="essence-layout">
+            <div class="essence-content fade-up">
+                <span class="essence-tag">NUESTRA ESENCIA</span>
 
-                <div class="rating-container">
-                    <span>4,1</span>
+                <h2 class="essence-headline">Más que una bolera, un punto de encuentro.</h2>
 
-                    <div class="stars-container">
-                        <div class="stars-background">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                        </div>
-                        <div class="stars-foreground" id="star-fill-layer">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                            </svg>
-                        </div>
-                    </div>
-
-                    <a href="https://www.google.com/search?q=canet+bowling+s.l.+reviews" target="_blank" rel="noopener"
-                        class="review-link">
-                        <span class="review-count">0</span>
-                        <span class="review-text">reseñas</span>
-                    </a>
-                </div>
-
-                <p class="essence-p">
+                <p class="essence-lead">
                     Desde nuestra apertura en 2006, hemos crecido para convertirnos en el complejo de ocio de referencia
-                    en la comarca. Nuestra filosofía es simple: ofrecer diversión de calidad a precios accesibles, para
-                    que nadie tenga que salir de la comarca para pasarlo bien.
+                    en la comarca.
+                    Nuestra filosofía es simple: ofrecer diversión de calidad a precios accesibles, para que familias,
+                    amigos y empresas encuentren su lugar sin salir de la zona.
                 </p>
+
+                <div class="stats-row">
+                    <div class="stat-group">
+                        <span class="stat-number" id="years-count">0</span>
+                        <span class="stat-label">Años de Historia</span>
+                    </div>
+
+                    <div class="rating-group" id="rating-container-animated">
+                        <div class="stars-container">
+                            <!-- Gray Background Stars -->
+                            <div class="stars-background">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                            </div>
+
+                            <!-- Yellow Foreground Stars (Width animated by JS) -->
+                            <div class="stars-foreground" id="star-fill-layer">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="rating-label">4.1 en Google (998 reseñas)</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="slider-container">
+            <div class="slider-container fade-up" style="transition-delay: 0.2s;">
                 <div class="slide active">
-                    <div class="slide-icon"><i class="fas fa-photo-video"></i></div>
-                    <div class="slide-text">Interior de Canet Bowling</div>
+                    <img src="assets/interior.webp" alt="Interior Bowling"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <div class="slide">
-                    <div class="slide-icon"><i class="fas fa-bowling-ball"></i></div>
-                    <div class="slide-text">Pistas de Bowling</div>
-                </div>
-                <div class="slide">
-                    <div class="slide-icon"><i class="fas fa-utensils"></i></div>
-                    <div class="slide-text">Bar y Restauración</div>
-                </div>
-                <button class="slider-arrow prev" id="btn-prev">&#10094;</button>
-                <button class="slider-arrow next" id="btn-next">&#10095;</button>
-                <div class="slider-dots">
-                    <span class="dot active" data-index="0"></span>
-                    <span class="dot" data-index="1"></span>
-                    <span class="dot" data-index="2"></span>
+                    <img src="assets/interior-2.webp" alt="Interior Bowling"
+                        style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Activities (Fun) Section -->
     <section id="diversion" class="fun-section">
-        <div class="section-header">
-            <h2>Entretenimiento sin Límites</h2>
+
+        <div style="margin-bottom: 60px;">
+            <span class="section-tag">ACTIVIDADES</span>
+            <h2 class="section-headline">Diversión sin límites</h2>
         </div>
 
-        <div class="fun-grid">
-            <div class="fun-card">
-                <div class="fun-icon"><i class="fas fa-bowling-ball"></i></div>
-                <div class="fun-content">
+        <div class="activities-grid">
+            <div class="activity-card fade-up">
+                <div class="activity-icon-simple">
+                    <i class="fas fa-bowling-ball"></i>
+                </div>
+                <div class="activity-content">
                     <h3>Bolera Profesional</h3>
-                    <p>12 pistas de última generación con tecnología de puntuación avanzada. Ideal para partidas
-                        casuales o ligas organizadas.</p>
+                    <p>12 pistas de última generación con sistema de puntuación avanzado. Ligas, torneos o diversión
+                        casual.</p>
                 </div>
             </div>
 
-            <div class="fun-card">
-                <div class="fun-icon"><i class="fas fa-microphone-alt"></i></div>
-                <div class="fun-content">
-                    <h3>Karaoke, Bar y Más</h3>
-                    <p>Vive tu momento estrella con más de 5.600 canciones en nuestro karaoke profesional. Disfruta de
-                        nuestra carta en el bar o en nuestra terraza de verano, que se convierte en pista de baile.</p>
+            <div class="activity-card fade-up" style="transition-delay: 0.1s;">
+                <div class="activity-icon-simple">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Karaoke & Bar</h3>
+                    <p>Más de 5.600 canciones. Escenario profesional, coctelería y una terraza que cobra vida por la
+                        noche.</p>
                 </div>
             </div>
 
-            <div class="fun-card">
-                <div class="fun-icon"><i class="fas fa-child"></i></div>
-                <div class="fun-content">
+            <div class="activity-card fade-up" style="transition-delay: 0.2s;">
+                <div class="activity-icon-simple">
+                    <i class="fas fa-child"></i>
+                </div>
+                <div class="activity-content">
                     <h3>Zona Infantil</h3>
-                    <p>Un espacio donde la diversión es la protagonista. Deja que tus hijos jueguen en nuestro parque y
-                        exploren el parque de bolas más grande de la comarca.</p>
+                    <p>El parque de bolas más grande de la zona. Seguridad y diversión garantizada para los más
+                        pequeños.</p>
                 </div>
             </div>
 
-            <div class="fun-card">
-                <div class="fun-icon"><img src="assets/8-ball.svg" alt="Billar" class="custom-icon-img"></div>
-                <div class="fun-content">
-                    <h3>Billar, Dardos y Futbolín</h3>
-                    <p>Mesas de billar profesional, dianas para jugar a los dardos y futbolines de competición. Perfecto
-                        para torneos y competiciones entre amigos.</p>
+            <div class="activity-card fade-up" style="transition-delay: 0.3s;">
+                <div class="activity-icon-simple">
+                    <img src="assets/8-ball.svg" alt="Billar" class="custom-icon-img">
+                </div>
+                <div class="activity-content">
+                    <h3>Zona de Juegos</h3>
+                    <p>Billares profesionales, futbolines de competición y dianas electrónicas. El desafío empieza aquí.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Promotions Section -->
     <section id="promociones" class="promotions-section">
-        <div class="section-header">
-            <h2>Promociones Especiales</h2>
+
+        <div style="margin-bottom: 60px;">
+            <span class="section-tag">OFERTAS EXCLUSIVAS</span>
+            <h2 class="section-headline" style="color: white; margin-bottom: 40px;">Packs y Promociones</h2>
         </div>
 
-        <div class="promotions-grid">
-            <div class="promotion-card">
-                <div class="promotion-icon"><i class="fas fa-tags"></i></div>
-                <h3>Promoción Doble Partida</h3>
-                <p class="promotion-subtitle">2 juegos de bolos + 1 bebida por persona</p>
-                <div class="promotion-price">11,50<span class="currency-symbol">€</span></div>
-                <p class="promotion-description">Ideal para una tarde de diversión con amigos. DTO 0,50€ en efectivo</p>
+
+        <div class="promotions-slider">
+            <div class="promotions-track">
+                <div class="promo-card fade-up">
+                    <h3 class="promo-title">Pack Doble Partida</h3>
+                    <p class="promo-subtitle">La opción favorita para grupos de amigos.</p>
+
+                    <div class="promo-price">
+                        11,50 <span class="promo-currency">€</span>
+                    </div>
+
+                    <ul style="list-style: none; color: #ccc;">
+                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 2 Partidas de Bolos</li>
+                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 1 Bebida Incluida</li>
+                    </ul>
+                    <p class="promo-desc">*Precio por persona. Dto 0,50€ en efectivo.</p>
+                </div>
+
+                <div class="promo-card fade-up" style="transition-delay: 0.2s;">
+                    <h3 class="promo-title">Menú Homer</h3>
+                    <p class="promo-subtitle">Cena, bebida y diversión en un solo pack.</p>
+
+                    <div class="promo-price">
+                        13,50 <span class="promo-currency">€</span>
+                    </div>
+
+                    <ul style="list-style: none; color: #ccc;">
+                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> Cena Completa</li>
+                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 1 Bebida</li>
+                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 1 Partida de Bolos</li>
+                    </ul>
+                    <p class="promo-desc">*Precio por persona. Dto 0,50€ en efectivo.</p>
+                </div>
             </div>
 
-            <div class="promotion-card">
-                <div class="promotion-icon"><i class="fas fa-utensils"></i></div>
-                <h3>Menú Homer</h3>
-                <p class="promotion-subtitle">Cena + bebida + partida de bolos por persona</p>
-                <div class="promotion-price">13,50<span class="currency-symbol">€</span></div>
-                <p class="promotion-description">La combinación perfecta de comida y diversión. DTO 0,50€ en efectivo
-                </p>
+            <div class="promo-controls">
+                <button id="promo-next-btn" class="btn-circle-arrow"><i class="fas fa-arrow-right"></i></button>
             </div>
         </div>
-        <button class="slider-arrow next-promo" id="promo-next">&#10095;</button>
+        <!-- Mobile nav for promos can be hidden or adapted via CSS grid scroll if needed, but grid works well in mobile column -->
     </section>
 
+    <!-- Events Section -->
     <section id="eventos" class="events-section">
-        <div class="section-header">
-            <h2>Celebra Tus Eventos</h2>
+        <div style="margin-bottom: 60px;">
+            <span class="section-tag">EVENTOS</span>
+            <h2 class="section-headline">Tus eventos, a otro nivel.</h2>
         </div>
 
-        <div class="events-grid">
-            <div class="event-card">
+        <div class="events-list">
+            <div class="event-item fade-up">
                 <div class="event-icon"><i class="fas fa-birthday-cake"></i></div>
-                <div class="event-content">
-                    <h3>Fiestas de Cumpleaños</h3>
-                    <p>Celebra los cumpleaños más divertidos en nuestra zona infantil especializada con parque de bolas
-                        y servicio de catering.</p>
+                <div class="event-details">
+                    <h3>Cumpleaños Infantiles</h3>
+                    <p>Parque de bolas, merienda y tarta. Todo organizado para padres, diversión total para niños.</p>
                 </div>
-                <div class="event-expand"><span>AMPLIAR</span></div>
+                <div class="event-arrow"><i class="fas fa-arrow-right"></i></div>
             </div>
 
-            <div class="event-card">
-                <div class="event-icon"><i class="fas fa-users"></i></div>
-                <div class="event-content">
-                    <h3>Celebraciones Empresariales</h3>
-                    <p>Organiza eventos corporativos, team building y celebraciones de empresa en un ambiente único y
-                        divertido.</p>
+            <div class="event-item fade-up" style="transition-delay: 0.1s;">
+                <div class="event-icon"><i class="fas fa-briefcase"></i></div>
+                <div class="event-details">
+                    <h3>Eventos Corporativos</h3>
+                    <p>Team building y cenas de empresa. Fomenta el compañerismo en un ambiente distendido.</p>
                 </div>
-                <div class="event-expand"><span>AMPLIAR</span></div>
+                <div class="event-arrow"><i class="fas fa-arrow-right"></i></div>
             </div>
 
-            <div class="event-card">
-                <div class="event-icon"><i class="fas fa-church"></i></div>
-                <div class="event-content">
-                    <h3>Comuniones y Bautizos</h3>
-                    <p>Celebra los momentos más especiales con un espacio dedicado, menú especial y actividades para
-                        todos los invitados.</p>
+            <div class="event-item fade-up" style="transition-delay: 0.2s;">
+                <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
+                <div class="event-details">
+                    <h3>Comuniones y Privados</h3>
+                    <p>Espacios reservados y menús a medida para tus celebraciones familiares más importantes.</p>
                 </div>
-                <div class="event-expand"><span>AMPLIAR</span></div>
+                <div class="event-arrow"><i class="fas fa-arrow-right"></i></div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer id="contacto">
-        <div class="divider"></div>
-        <div class="footer-container">
-            <div class="footer-content">
-                <!-- Left Column -->
-                <div class="footer-column left-column">
-                    <div class="social-icons">
-                        <a href="https://www.facebook.com/p/CanetBowling-100079896655999/?locale=es_LA" target="_blank"
-                            class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/canetbowling/?hl=es" target="_blank" class="social-btn"><i
-                                class="fa-brands fa-instagram"></i></a>
-                    </div>
-
-                    <div class="footer-info-section">
-                        <div class="footer-info-table">
-                            <table>
-                                <tr>
-                                    <td>Teléfono:</td>
-                                    <td>962 68 43 00</td>
-                                </tr>
-                                <tr>
-                                    <td>Reservas:</td>
-                                    <td>622 888 264</td>
-                                </tr>
-                                <tr>
-                                    <td>Email:</td>
-                                    <td>canetbowling@gmail.com</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="footer-info-section">
-                        <h3>Horarios</h3>
-                        <div class="footer-info-table">
-                            <table>
-                                <tr>
-                                    <td>Miércoles, Jueves, Domingo:</td>
-                                    <td>17:00 – 21:30</td>
-                                </tr>
-                                <tr>
-                                    <td>Viernes, Sábado, Festivos:</td>
-                                    <td>17:00 – 03:00</td>
-                                </tr>
-                                <tr>
-                                    <td>Lunes y Martes:</td>
-                                    <td>Cerrado</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h4>Información y Reservas</h4>
+                <div class="footer-table-container">
+                    <table class="footer-table">
+                        <tr>
+                            <td>Teléfono</td>
+                            <td>962 68 43 00</td>
+                        </tr>
+                        <tr>
+                            <td>Reservas</td>
+                            <td>622 888 264</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>canetbowling@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="height: 20px;"></td>
+                        </tr>
+                        <tr>
+                            <td>Horario</td>
+                            <td>
+                                X-J-D: 17:00 – 21:30<br>
+                                V-S-Fest: 17:00 – 03:00<br>
+                                <span>Lunes y Martes Cerrado</span>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
 
-                <!-- Right Column -->
-                <div class="footer-column right-column">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.076735194696!2d-0.230197823405228!3d39.685368471566576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6015d7c3466b35%3A0xc00830d4d36a5146!2sCanet%20Bowling%20S.L.!5e1!3m2!1sen!2ses!4v1768916347186!5m2!1sen!2ses"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <a href="https://www.google.com/maps/contrib/114840439350543225695/photos/@39.6854474,-0.2276944,3a,75y,62.51h,83.6t/data=!3m7!1e1!3m5!1sAF1QipOP-AoPtLcT-jZILTf_PYvi0RzgSFVwrOH9vyR2!2e10!6shttps:%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipOP-AoPtLcT-jZILTf_PYvi0RzgSFVwrOH9vyR2%3Dw900-h600-k-no-pi6.399155611598999-ya65.29693279482404-ro0-fo100!7i13312!8i6656!4m3!8m2!3m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
-                        target="_blank" class="virtual-tour-text">Vista Virtual</a>
+                <div class="socials">
+                    <a href="https://www.facebook.com/p/CanetBowling-100079896655999/?locale=es_LA" target="_blank"
+                        class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/canetbowling/?hl=es" target="_blank" class="social-btn"><i
+                            class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
-            <div class="footer-bottom">
-                <p>Copyright 2026 © <span class="legal-text">Aviso legal y preguntas frecuentes</span></p>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.076735194696!2d-0.230197823405228!3d39.685368471566576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6015d7c3466b35%3A0xc00830d4d36a5146!2sCanet%20Bowling%20S.L.!5e1!3m2!1sen!2ses!4v1768916347186!5m2!1sen!2ses"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <a href="https://www.google.com/maps/contrib/114840439350543225695/photos/@39.6854474,-0.2276944,3a,75y,62.51h,83.6t/data=!3m7!1e1!3m5!1sAF1QipOP-AoPtLcT-jZILTf_PYvi0RzgSFVwrOH9vyR2!2e10!6shttps:%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipOP-AoPtLcT-jZILTf_PYvi0RzgSFVwrOH9vyR2%3Dw900-h600-k-no-pi6.399155611598999-ya65.29693279482404-ro0-fo100!7i13312!8i6656!4m3!8m2!3m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    style="display:block; margin-top: 10px; font-size: 0.9rem; color: #888; text-decoration: underline; text-align: center;">Ver
+                    Tour Virtual 360º</a>
             </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Canet Bowling. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="script.js"></script>
+    <!-- Mobile Overlay -->
     <div id="mobile-menu-overlay">
         <div class="mobile-menu-close" id="mobile-menu-close"><i class="fas fa-times"></i></div>
         <div class="mobile-links">
             <a href="#diversion" class="mobile-link">Actividades</a>
             <a href="#eventos" class="mobile-link">Eventos</a>
-            <a href="#menu" class="mobile-link">Menú</a>
-            <a href="#contacto" class="btn-mobile-contact mobile-link">Contacto</a>
+            <a href="#promociones" class="mobile-link">Menú</a>
+            <a href="#contacto" class="mobile-link">Contacto</a>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
