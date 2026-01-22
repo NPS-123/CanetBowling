@@ -1,214 +1,358 @@
-document.addEventListener("DOMContentLoaded", () => {
+<!DOCTYPE html>
+<html lang="es">
 
-    // =========================================
-    // 1. HERO ANIMATIONS
-    // =========================================
-    // Initial fade in for hero text
-    if (typeof gsap !== 'undefined') {
-        const tl = gsap.timeline();
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canet Bowling | Complejo de Ocio y Eventos</title>
+    <meta name="description"
+        content="Bolera, Karaoke, Parque Infantil y Restaurante en Canet de Berenguer. Tu plan perfecto de ocio.">
 
-        tl.to(".hero-title", {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            delay: 0.2
-        })
-            .to(".hero-subtitle", {
-                opacity: 0.9,
-                y: 0,
-                duration: 1,
-                ease: "power3.out"
-            }, "-=0.6")
-            .to(".btn-primary", {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: "power3.out"
-            }, "-=0.6");
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Mulish:wght@400;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo-link">
+            <img src="assets/CanetBowling-NoBG2.png" alt="Canet Bowling" class="logo">
+        </a>
+        <div class="nav-links">
+            <a href="#diversion">ACTIVIDADES</a>
+            <a href="#eventos">EVENTOS</a>
+            <a href="#promociones">MENÚ</a>
+            <a href="#contacto" class="btn-contact">CONTÁCTANOS</a>
+        </div>
+        <div class="hamburger-menu" id="hamburger-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">TU PLAN PERFECTO<br>EN CANET.</h1>
+            <p class="hero-subtitle">1.800 m² de pura diversión con bolera, karaoke, restaurante y parque infantil. Tu
+                destino de ocio en la comarca.</p>
+            <a href="#promociones" class="btn-primary"><span>Descubre Ofertas</span></a>
+        </div>
+    </header>
+
+    <!-- Essence Section -->
+    <section class="essence-section">
+        <!-- No separate section header to reduce noise, integrated into layout -->
+
+        <div class="essence-layout">
+            <div class="essence-content fade-up">
+                <span class="essence-tag">NUESTRA ESENCIA</span>
+
+                <h2 class="essence-headline">Más que una bolera, un punto de encuentro.</h2>
+
+                <p class="essence-lead">
+                    Desde nuestra apertura en 2006, hemos crecido para convertirnos en el complejo de ocio de referencia
+                    en la comarca.
+                    Nuestra filosofía es simple: ofrecer diversión de calidad a precios accesibles, para que familias,
+                    amigos y empresas encuentren su lugar sin salir de la zona.
+                </p>
+
+                <div class="stats-row">
+                    <div class="stat-group">
+                        <span class="stat-number" id="years-count">0</span>
+                        <span class="stat-label">Años de Historia</span>
+                    </div>
+
+                    <div class="rating-group" id="rating-container-animated">
+                        <div class="stars-container">
+                            <!-- Gray Background Stars -->
+                            <div class="stars-background">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                            </div>
+
+                            <!-- Yellow Foreground Stars (Width animated by JS) -->
+                            <div class="stars-foreground" id="star-fill-layer">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span class="rating-label">4.1 en Google (998 reseñas)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-container fade-up" style="transition-delay: 0.2s;">
+                <div class="slide active">
+                    <img src="assets/interior.webp" alt="Interior Bowling"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="slide">
+                    <img src="assets/interior-2.webp" alt="Interior Bowling"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities (Fun) Section -->
+    <section id="diversion" class="fun-section">
+
+        <div style="margin-bottom: 60px;">
+            <span class="section-tag">ACTIVIDADES</span>
+            <h2 class="section-headline">Diversión sin límites</h2>
+        </div>
+
+        <div class="activities-grid">
+            <div class="activity-card fade-up">
+                <div class="activity-icon-simple">
+                    <i class="fas fa-bowling-ball"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Bolera Profesional</h3>
+                    <p>12 pistas de última generación con sistema de puntuación avanzado. Ligas, torneos o diversión
+                        casual.</p>
+                </div>
+            </div>
+
+            <div class="activity-card fade-up" style="transition-delay: 0.1s;">
+                <div class="activity-icon-simple">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Karaoke & Bar</h3>
+                    <p>Más de 5.600 canciones. Escenario profesional, coctelería y una terraza que cobra vida por la
+                        noche.</p>
+                </div>
+            </div>
+
+            <div class="activity-card fade-up" style="transition-delay: 0.2s;">
+                <div class="activity-icon-simple">
+                    <i class="fas fa-child"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Zona Infantil</h3>
+                    <p>El parque de bolas más grande de la zona. Seguridad y diversión garantizada para los más
+                        pequeños.</p>
+                </div>
+            </div>
+
+            <div class="activity-card fade-up" style="transition-delay: 0.3s;">
+                <div class="activity-icon-simple">
+                    <img src="assets/8-ball.svg" alt="Billar" class="custom-icon-img">
+                </div>
+                <div class="activity-content">
+                    <h3>Zona de Juegos</h3>
+                    <p>Billares profesionales, futbolines de competición y dianas electrónicas. El desafío empieza aquí.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section id="promociones" class="promotions-section">
+
+        <div style="margin-bottom: 60px;">
+            <span class="section-tag">OFERTAS EXCLUSIVAS</span>
+            <h2 class="section-headline" style="color: white; margin-bottom: 40px;">Packs y Promociones</h2>
+        </div>
 
 
+        <div class="promotions-slider">
+            <div class="promotions-track">
+                <div class="promo-card fade-up">
+                    <h3 class="promo-title">Pack Doble Partida</h3>
+                    <p class="promo-subtitle">La opción favorita para grupos de amigos.</p>
 
-    // =========================================
-    // 2. NAVBAR SCROLL EFFECT
-    // =========================================
-    const navbar = document.getElementById("navbar");
+                    <div class="promo-price">
+                        11,50 <span class="promo-currency">€</span>
+                    </div>
 
-    function updateNavbar() {
-        if (window.scrollY > 50) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
-    }
+                    <ul style="list-style: none; color: #ccc;">
+                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 2 Partidas de Bolos</li>
+                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 1 Bebida Incluida</li>
+                    </ul>
+                    <p class="promo-desc">*Precio por persona. Dto 0,50€ en efectivo.</p>
+                </div>
 
-    window.addEventListener("scroll", updateNavbar);
-    updateNavbar(); // Check on load
+                <div class="promo-card fade-up" style="transition-delay: 0.2s;">
+                    <h3 class="promo-title">Menú Homer</h3>
+                    <p class="promo-subtitle">Cena, bebida y diversión en un solo pack.</p>
 
-    // =========================================
-    // 3. FADE UP ON SCROLL (INTERSECTION OBSERVER)
-    // =========================================
-    const fadeElements = document.querySelectorAll(".fade-up");
+                    <div class="promo-price">
+                        13,50 <span class="promo-currency">€</span>
+                    </div>
 
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
+                    <ul style="list-style: none; color: #ccc;">
+                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> Cena Completa</li>
+                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 1 Bebida</li>
+                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 1 Partida de Bolos</li>
+                    </ul>
+                    <p class="promo-desc">*Precio por persona. Dto 0,50€ en efectivo.</p>
+                </div>
+            </div>
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target); // Only animate once
-            }
-        });
-    }, observerOptions);
+            <div class="promo-controls">
+                <button id="promo-next-btn" class="btn-circle-arrow"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <!-- Mobile nav for promos can be hidden or adapted via CSS grid scroll if needed, but grid works well in mobile column -->
+    </section>
 
-    fadeElements.forEach(el => observer.observe(el));
+    <!-- Events Section -->
+    <section id="eventos" class="events-section">
+        <div style="margin-bottom: 60px;">
+            <span class="section-tag">EVENTOS</span>
+            <h2 class="section-headline">Tus eventos, a otro nivel.</h2>
+        </div>
 
-    // =========================================
-    // 4. IMAGE SLIDER (Simple Fade)
-    // =========================================
-    const slides = document.querySelectorAll('.slide');
-    if (slides.length > 0) {
-        let currentSlide = 0;
-        const totalSlides = slides.length;
+        <div class="events-list">
+            <div class="event-item fade-up">
+                <div class="event-icon"><i class="fas fa-birthday-cake"></i></div>
+                <div class="event-details">
+                    <h3>Cumpleaños Infantiles</h3>
+                    <p>Parque de bolas, merienda y tarta. Todo organizado para padres, diversión total para niños.</p>
+                </div>
+                <div class="event-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
 
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % totalSlides;
-            slides[currentSlide].classList.add('active');
-        }
+            <div class="event-item fade-up" style="transition-delay: 0.1s;">
+                <div class="event-icon"><i class="fas fa-briefcase"></i></div>
+                <div class="event-details">
+                    <h3>Eventos Corporativos</h3>
+                    <p>Team building y cenas de empresa. Fomenta el compañerismo en un ambiente distendido.</p>
+                </div>
+                <div class="event-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
 
-        // Auto slide every 4 seconds
-        setInterval(nextSlide, 4000);
-    }
+            <div class="event-item fade-up" style="transition-delay: 0.2s;">
+                <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
+                <div class="event-details">
+                    <h3>Comuniones y Privados</h3>
+                    <p>Espacios reservados y menús a medida para tus celebraciones familiares más importantes.</p>
+                </div>
+                <div class="event-arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+        </div>
+    </section>
 
-    // =========================================
-    // 5. MOBILE MENU
-    // =========================================
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <h4>Información y Reservas</h4>
+                <div class="footer-table-container">
+                    <table class="footer-table">
+                        <tr>
+                            <td>Teléfono</td>
+                            <td>962 68 43 00</td>
+                        </tr>
+                        <tr>
+                            <td>Reservas</td>
+                            <td>622 888 264</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>canetbowling@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="height: 20px;"></td>
+                        </tr>
+                        <tr>
+                            <td>Horario</td>
+                            <td>
+                                X-J-D: 17:00 – 21:30<br>
+                                V-S-Fest: 17:00 – 03:00<br>
+                                <span>Lunes y Martes Cerrado</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
 
-    if (hamburgerBtn && mobileMenuOverlay) {
-        hamburgerBtn.addEventListener('click', () => {
-            mobileMenuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+                <div class="socials">
+                    <a href="https://www.facebook.com/p/CanetBowling-100079896655999/?locale=es_LA" target="_blank"
+                        class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/canetbowling/?hl=es" target="_blank" class="social-btn"><i
+                            class="fab fa-instagram"></i></a>
+                </div>
+            </div>
 
-            // Stagger animation for links if we wanted, but CSS transition is fine
-        });
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3726.076735194696!2d-0.230197823405228!3d39.685368471566576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6015d7c3466b35%3A0xc00830d4d36a5146!2sCanet%20Bowling%20S.L.!5e1!3m2!1sen!2ses!4v1768916347186!5m2!1sen!2ses"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <a href="https://www.google.com/maps/contrib/114840439350543225695/photos/@39.6854474,-0.2276944,3a,75y,62.51h,83.6t/data=!3m7!1e1!3m5!1sAF1QipOP-AoPtLcT-jZILTf_PYvi0RzgSFVwrOH9vyR2!2e10!6shttps:%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipOP-AoPtLcT-jZILTf_PYvi0RzgSFVwrOH9vyR2%3Dw900-h600-k-no-pi6.399155611598999-ya65.29693279482404-ro0-fo100!7i13312!8i6656!4m3!8m2!3m1!1e1?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    style="display:block; margin-top: 10px; font-size: 0.9rem; color: #888; text-decoration: underline; text-align: center;">Ver
+                    Tour Virtual 360º</a>
+            </div>
+        </div>
 
-        const closeMenu = () => {
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        };
+        <div class="footer-bottom">
+            <p>© 2026 Canet Bowling<br>
+                <span style="text-decoration: underline;">Aviso legal y preguntas frecuentes</span>
+            </p>
+        </div>
+    </footer>
 
-        if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMenu);
+    <!-- Mobile Overlay -->
+    <div id="mobile-menu-overlay">
+        <div class="mobile-menu-close" id="mobile-menu-close"><i class="fas fa-times"></i></div>
+        <div class="mobile-links">
+            <a href="#diversion" class="mobile-link">Actividades</a>
+            <a href="#eventos" class="mobile-link">Eventos</a>
+            <a href="#promociones" class="mobile-link">Menú</a>
+            <a href="#contacto" class="mobile-link">Contacto</a>
+        </div>
+    </div>
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
 
-        mobileMenuOverlay.addEventListener('click', (e) => {
-            if (e.target === mobileMenuOverlay) closeMenu();
-        });
-    }
-
-    // =========================================
-    // 6. SMOOTH SCROLL FOR ANCHORS
-    // =========================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const navHeight = 80; // Approximate
-                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // =========================================
-    // 7. STATS ANIMATION (Stars & Years)
-    // =========================================
-    const yearsCountEl = document.getElementById("years-count");
-    const starFillLayer = document.getElementById("star-fill-layer");
-    const ratingContainer = document.getElementById("rating-container-animated");
-
-    if (yearsCountEl || (starFillLayer && ratingContainer)) {
-        const triggerEl = ratingContainer || yearsCountEl;
-
-        const durationYears = 3000;
-        const durationStars = 2000;
-
-        const endYears = 20;
-        const endRating = 4.1; // 4.1 out of 5
-        let hasAnimated = false;
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !hasAnimated) {
-                    hasAnimated = true;
-                    let startTimestamp = null;
-
-                    function step(timestamp) {
-                        if (!startTimestamp) startTimestamp = timestamp;
-                        const elapsed = timestamp - startTimestamp;
-                        const progressYears = Math.min(elapsed / durationYears, 1);
-                        const progressStars = Math.min(elapsed / durationStars, 1);
-
-                        // Animate Years (0 to 20)
-                        if (yearsCountEl) {
-                            const currentYear = Math.floor(progressYears * endYears);
-                            yearsCountEl.textContent = currentYear;
-                        }
-
-                        // Animate Stars Width (0% to 82%)
-                        if (starFillLayer) {
-                            const targetWidthPercent = (endRating / 5) * 100;
-                            const currentWidth = progressStars * targetWidthPercent;
-                            starFillLayer.style.width = `${currentWidth}%`;
-                        }
-
-                        if (progressYears < 1 || progressStars < 1) {
-                            requestAnimationFrame(step);
-                        }
-                    }
-                    requestAnimationFrame(step);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        if (triggerEl) observer.observe(triggerEl);
-    }
-
-    // =========================================
-    // 8. PROMOTIONS SLIDER (Mobile)
-    // =========================================
-    const promoNextBtn = document.getElementById('promo-next-btn');
-    const promoTrack = document.querySelector('.promotions-track');
-
-    if (promoNextBtn && promoTrack) {
-        let currentPromoIndex = 0;
-        const promos = promoTrack.children;
-        const totalPromos = promos.length;
-
-        promoNextBtn.addEventListener('click', () => {
-            currentPromoIndex = (currentPromoIndex + 1) % totalPromos;
-            const translateX = -(currentPromoIndex * 100);
-            promoTrack.style.transform = `translateX(${translateX}%)`;
-        });
-    }
-});
+</html>
