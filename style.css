@@ -1,0 +1,1063 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    --primary-red: #FD0001;
+    --text-white: #FFFFFF;
+    --smokey-black: #100C08;
+    --pure-white: #FFFFFF;
+    --off-white: #F5F5F7;
+    /* Apple-like off-white for subtle backgrounds */
+
+    --text-main: var(--smokey-black);
+    --text-muted: #555555;
+
+    --desktop-margin: 8vw;
+    /* Use vw for fluid margins */
+
+    --font-header: 'Mulish', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --transition-fast: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--pure-white);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-header);
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+button {
+    border: none;
+    background: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* =========================================
+   2. UTILITIES & ANIMATIONS
+   ========================================= */
+.text-red {
+    color: var(--primary-red);
+}
+
+.bg-black {
+    background-color: var(--smokey-black);
+    color: var(--text-white);
+}
+
+.bg-white {
+    background-color: var(--pure-white);
+    color: var(--smokey-black);
+}
+
+/* Fade In Up Animation Class */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover Scale */
+.hover-scale {
+    transition: transform 0.4s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* =========================================
+   3. NAVIGATION
+   ========================================= */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px var(--desktop-margin);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+nav.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px var(--desktop-margin);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+nav.scrolled .nav-links a {
+    color: var(--smokey-black);
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    transform: translateY(8%);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: var(--text-white);
+    /* Default for hero */
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Interactive underline for links */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-red);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.btn-contact {
+    padding: 10px 25px;
+    border: 2px solid var(--primary-red);
+    background-color: transparent;
+    color: var(--primary-red) !important;
+    /* Always red */
+    border-radius: 0;
+    /* Minimalist sharp edges or slight radius */
+    transition: all 0.3s ease;
+}
+
+.nav-links a.btn-contact:hover {
+    background-color: var(--primary-red);
+    color: var(--text-white) !important;
+}
+
+.nav-links a.btn-contact::after {
+    display: none;
+}
+
+/* Hamburger Menu Logic */
+.hamburger-menu {
+    display: none;
+    font-size: 24px;
+    color: var(--text-white);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+nav.scrolled .hamburger-menu {
+    color: var(--smokey-black);
+}
+
+@media (max-width: 1024px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        /* Hide default links on tablet/mobile */
+    }
+}
+
+
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Left align for modern clean look */
+    padding: 0 var(--desktop-margin);
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/local-hero.webp');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    transform: scale(1.1);
+    /* Start slightly zoomed for motion effect */
+    transition: transform 3s ease-out;
+    /* Controlled by JS scroll */
+}
+
+/* Overlay gradient for readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(16, 12, 8, 0.8) 0%, rgba(16, 12, 8, 0.4) 60%, transparent 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 600px;
+    color: var(--text-white);
+}
+
+.hero-title {
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    /* JS Fade in */
+    transform: translateY(20px);
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    font-weight: 400;
+    max-width: 90%;
+    opacity: 0;
+    /* JS Fade in */
+    transform: translateY(20px);
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary-red);
+    color: var(--text-white);
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid var(--primary-red);
+    opacity: 0;
+    /* JS Fade in */
+    transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(253, 0, 1, 0.6);
+    /* Everpresent glow */
+}
+
+/* Shiny "Swipe" Hover Effect */
+.btn-primary span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    z-index: 1;
+    transition: left 0.6s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    color: var(--text-white);
+}
+
+/* =========================================
+   5. SECTIONS GENERAL
+   ========================================= */
+section {
+    padding: 120px var(--desktop-margin);
+    position: relative;
+}
+
+.section-header {
+    margin-bottom: 80px;
+    max-width: 800px;
+}
+
+.section-label {
+    display: block;
+    color: var(--primary-red);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: clamp(2rem, 3vw, 3rem);
+    color: var(--smokey-black);
+    margin-bottom: 20px;
+}
+
+.divider-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-red);
+    margin-top: 20px;
+}
+
+/* =========================================
+   6. ESSENCE (Redesigned: Clean Hierarchy)
+   ========================================= */
+.essence-section {
+    background-color: var(--pure-white);
+    display: flex;
+    align-items: center;
+    /* Vertically center if section has height */
+}
+
+/* Remove default section-header styles for this specific section inside HTML logic, 
+   but here we ensure the container flows well. */
+
+.essence-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    /* Slightly more space for visual */
+    gap: 100px;
+    align-items: center;
+}
+
+.essence-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.essence-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.essence-headline {
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 800;
+    /* Bold */
+    line-height: 1.1;
+    color: var(--smokey-black);
+    margin-bottom: 30px;
+}
+
+/* Sub-headline / Leadin */
+.essence-lead {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-main);
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+/* Stats Row: Integrating the "20 Years" and "Rating" subtly */
+.stats-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.stat-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--smokey-black);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.rating-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.stars-row {
+    color: #FFD700;
+    /* Gold for stars, keeping it recognizable */
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.rating-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Minimal Slider Overlay */
+.slider-container {
+    width: 100%;
+    height: 550px;
+    /* Taller, more impressive */
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    /* Slight radius */
+    box-shadow: 20px 20px 0px rgba(0, 0, 0, 0.03);
+    /* Subtle offset decoration */
+}
+
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease;
+    opacity: 0;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-content i {
+    font-size: 4rem;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   7. ACTIVITIES (Redesigned: 2x2 Grid + Row Cards)
+   ========================================= */
+.fun-section {
+    background-color: var(--off-white);
+}
+
+/* Reusing minimalist header hierarchy */
+.section-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.section-headline {
+    font-size: clamp(2rem, 3.5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--smokey-black);
+    margin-bottom: 60px;
+    max-width: 800px;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Explicit 2x2 Layout */
+    gap: 50px;
+    /* Ample whitespace */
+    align-items: start;
+}
+
+.activity-card {
+    background: transparent;
+    /* Clean tile look */
+    background: var(--pure-white);
+    padding: 35px;
+    border-radius: 12px;
+    display: flex;
+    /* Row Layout */
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    border-color: rgba(253, 0, 1, 0.1);
+}
+
+/* Simple Red Icon Style */
+.activity-icon-simple {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    /* No background, no shadow, just icon */
+}
+
+.activity-icon-simple i {
+    font-size: 2.5rem;
+    /* Larger icon since no circle container */
+    color: var(--primary-red) !important;
+}
+
+.activity-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-content h3,
+.event-details h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: var(--smokey-black);
+    line-height: 1.2;
+}
+
+.activity-content p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* Custom Image Icon (8-ball) needs to be red now */
+.custom-icon-img {
+    width: 2.5rem;
+    height: auto;
+    filter: invert(13%) sepia(94%) saturate(7466%) hue-rotate(357deg) brightness(94%) contrast(116%);
+    /* Forces Red */
+}
+
+@media (max-width: 900px) {
+    .activities-grid {
+        grid-template-columns: 1fr;
+        /* Stack on mobile/tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .essence-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* =========================================
+   8. PROMOTIONS (Sleek Dark Mode)
+   ========================================= */
+.promotions-section {
+    background-color: var(--smokey-black);
+    color: var(--text-white);
+}
+
+.promotions-section .section-title {
+    color: var(--text-white);
+}
+
+.promotions-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.promotions-track {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.promo-controls {
+    display: none;
+}
+
+.btn-circle-arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-circle-arrow:hover {
+    background: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.promo-card {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 50px;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.promo-card:hover {
+    border-color: var(--primary-red);
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.promo-price {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--primary-red);
+    line-height: 1;
+    margin: 20px 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.promo-currency {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.promo-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.promo-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.promo-desc {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    .promotions-track {
+        display: flex;
+        grid-template-columns: none;
+        gap: 0;
+        width: 100%;
+        /* Track will be translated */
+    }
+
+    .promo-card {
+        min-width: 100%;
+    }
+
+    .promo-controls {
+        display: flex;
+        /* Visible on mobile */
+        justify-content: center;
+        margin-top: 30px;
+    }
+}
+
+/* =========================================
+   9. EVENTS (List Layout)
+   ========================================= */
+.events-section {
+    padding-bottom: 0;
+    background-color: #F5F5F7;
+    padding-bottom: 120px;
+    /* Add padding bottom since we are adding background */
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    padding: 35px;
+    background: var(--pure-white);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    /* Space between cards */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    /* For absolute arrow if needed, but flex justify works too */
+    border: 1px solid transparent;
+}
+
+.event-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    border-color: rgba(253, 0, 1, 0.1);
+}
+
+
+
+.event-icon {
+    font-size: 2.5rem;
+    color: var(--primary-red);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+    flex-shrink: 0;
+}
+
+.event-details {
+    flex: 1;
+}
+
+
+
+.event-details p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+.event-arrow {
+    font-size: 1.2rem;
+    color: var(--primary-red);
+    opacity: 1;
+    /* Always visible */
+    transform: none;
+    /* No movement needed if fixed */
+    margin-left: 20px;
+}
+
+/* Removed arrow hover slide as requested */
+.event-item:hover .event-arrow {
+    transform: none;
+}
+
+/* =========================================
+   10. FOOTER
+   ========================================= */
+footer {
+    background-color: var(--smokey-black);
+    color: var(--text-white);
+    padding: 100px var(--desktop-margin) 40px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Split into Left (Info) and Right (Map) */
+    gap: 80px;
+    margin-bottom: 60px;
+}
+
+.footer-info h4 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 15px;
+    display: inline-block;
+}
+
+.footer-table td {
+    padding: 10px 0;
+    vertical-align: top;
+    color: #ccc;
+}
+
+.footer-table td:first-child {
+    width: 150px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.socials {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.social-btn:hover {
+    background-color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 350px;
+    /* filter: grayscale(100%); Removed */
+    transition: filter 0.3s ease;
+}
+
+.map-container iframe:hover {
+    filter: grayscale(0%);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   11. MOBILE OVERLAY
+   ========================================= */
+#mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--smokey-black);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+#mobile-menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 24px;
+    /* Matches updated mobile nav padding top + adjustment */
+    right: 20px;
+    /* Matches updated mobile nav padding right */
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Make "Contacto" (last link) look like a CTA */
+/* Make "Contacto" (last link) look like a GHOST CTA detailed by user */
+.mobile-links .mobile-link:last-child {
+    background-color: transparent;
+    padding: 15px 40px;
+    border: 2px solid var(--primary-red);
+    font-size: 1.5rem;
+    color: var(--primary-red) !important;
+    margin-top: 20px;
+    display: inline-block;
+    /* No hover animation requested */
+    transition: none;
+}
+
+.mobile-links .mobile-link:last-child:hover {
+    background-color: transparent;
+    color: var(--primary-red) !important;
+}
+
+@media (max-width: 900px) {
+
+    /* Navbar Adjustment */
+    nav {
+        padding: 15px 20px;
+        /* Reduced padding */
+    }
+
+    .logo {
+        height: 35px;
+        /* Smaller logo */
+    }
+
+    /* Activities Icons */
+    .activity-icon-simple {
+        margin-right: 15px;
+        /* Reduce gap if horizontal, or just size */
+        width: 50px;
+        height: 50px;
+    }
+
+    .activity-icon-simple i {
+        font-size: 2rem;
+    }
+
+    .activity-card {
+        padding: 25px;
+        /* Tighter padding */
+        gap: 15px;
+    }
+
+    /* Event Icons */
+    .event-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 2rem;
+        margin-right: 15px;
+    }
+
+    .event-item {
+        padding: 25px;
+    }
+}
+
+.mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+}
+
+.mobile-link {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff !important;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.mobile-link:hover {
+    color: var(--primary-red) !important;
+}
+
+/* Utility for image icons */
+.custom-icon-img {
+    width: 2.5rem;
+    height: auto;
+    filter: invert(13%) sepia(94%) saturate(7466%) hue-rotate(357deg) brightness(94%) contrast(116%);
+    /* Matches primary red */
+}
+
+/* Animated Star Rating Components */
+.stars-container {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 0px;
+    margin-bottom: 5px;
+    width: 90px;
+    height: 18px;
+}
+
+.stars-background,
+.stars-foreground {
+    display: flex;
+    color: #e0e0e0;
+}
+
+.stars-foreground {
+    color: #FFC107;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0%;
+    white-space: nowrap;
+}
+
+.stars-container svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
