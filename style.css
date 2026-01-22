@@ -311,27 +311,34 @@ nav.scrolled .hamburger-menu {
     transform: translateY(20px);
     position: relative;
     overflow: hidden;
-}
-
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--primary-red);
+    box-shadow: 0 0 20px rgba(253, 0, 1, 0.6);
+    /* Everpresent glow */
 }
 
 /* Shiny "Swipe" Hover Effect */
-.btn-primary::after {
+.btn-primary span {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-primary::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    z-index: 1;
+    transition: left 0.6s ease;
 }
 
-.btn-primary:hover::after {
+.btn-primary:hover::before {
     left: 100%;
+}
+
+.btn-primary:hover {
+    color: var(--text-white);
 }
 
 /* =========================================
@@ -827,7 +834,7 @@ footer {
 .footer-info h4 {
     font-size: 1.5rem;
     margin-bottom: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     padding-bottom: 15px;
     display: inline-block;
 }
@@ -853,7 +860,7 @@ footer {
 .social-btn {
     width: 45px;
     height: 45px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -932,14 +939,17 @@ footer {
 }
 
 /* Make "Contacto" (last link) look like a CTA */
+/* Make "Contacto" (last link) look like a GHOST CTA detailed by user */
 .mobile-links .mobile-link:last-child {
-    background-color: var(--primary-red);
+    background-color: transparent;
     padding: 15px 40px;
     border: 2px solid var(--primary-red);
     font-size: 1.5rem;
-    color: #fff !important;
+    color: var(--primary-red) !important;
     margin-top: 20px;
     display: inline-block;
+    /* No hover animation requested */
+    transition: none;
 }
 
 .mobile-links .mobile-link:last-child:hover {
