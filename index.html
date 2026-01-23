@@ -4,287 +4,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canet Bowling | Complejo de Ocio y Eventos</title>
-    <meta name="description"
-        content="Bolera, Karaoke, Parque Infantil y Restaurante en Canet de Berenguer. Tu plan perfecto de ocio.">
-
+    <title>Eventos - Canet Bowling</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Mulish:wght@400;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;800&family=Inter:wght@300;400;600&display=swap"
         rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/CanetBowling-Logo.png">
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <a href="#" class="logo-link">
-            <img src="assets/CanetBowling-NoBG2.png" alt="Canet Bowling" class="logo">
-        </a>
+    <!-- Navigation (Reused) -->
+    <nav>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="assets/CanetBowling-NoBG2.png" alt="Canet Bowling Logo" class="logo">
+            </a>
+        </div>
         <div class="nav-links">
-            <a href="#diversion">ACTIVIDADES</a>
-            <a href="#eventos">EVENTOS</a>
-            <a href="#promociones">MENÚ</a>
-            <a href="#contacto" class="btn-contact">CONTÁCTANOS</a>
+            <a href="index.html#diversion">ACTIVIDADES</a>
+            <a href="index.html#eventos">EVENTOS</a>
+            <a href="index.html#promociones">MENÚ</a>
+            <a href="index.html#contacto" class="btn-contact">CONTÁCTANOS</a>
         </div>
         <div class="hamburger-menu" id="hamburger-btn">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">TU PLAN PERFECTO<br>EN CANET.</h1>
-            <p class="hero-subtitle">1.800 m² de pura diversión con bolera, karaoke, restaurante y parque infantil. Tu
-                destino de ocio en la comarca.</p>
-            <a href="#promociones" class="btn-primary"><span>Descubre Ofertas</span></a>
+    <section>
+        <div class="section-header">
+            <span class="section-tag">CELEBRACIONES</span>
+            <h1 class="section-headline">Tus Eventos en Canet</h1>
+            <div class="divider-line"></div>
         </div>
-    </header>
 
-    <!-- Essence Section -->
-    <section class="essence-section">
-        <!-- No separate section header to reduce noise, integrated into layout -->
+        <div class="events-page-wrapper">
 
-        <div class="essence-layout">
-            <div class="essence-content fade-up">
-                <span class="essence-tag">NUESTRA ESENCIA</span>
+            <!-- 1. Cumpleaños Content (Side by Side) -->
+            <div class="event-details-row">
+                <div class="event-text-col">
+                    <span class="section-tag" style="margin-bottom: 10px;">INFANTIL</span>
+                    <h2 class="event-headline-large">Cumpleaños Inolvidables</h2>
+                    <p class="event-lead">La celebración perfecta para los más pequeños. Nosotros organizamos todo, tú
+                        solo disfrutas.</p>
 
-                <h2 class="essence-headline">Más que una bolera, un punto de encuentro.</h2>
+                    <ul class="feature-list-styled">
+                        <li><i class="fas fa-check"></i>Parque de bolas privado sin límite de tiempo</li>
+                        <li><i class="fas fa-check"></i>Merienda completa con sandwich y picoteo</li>
+                        <li><i class="fas fa-check"></i>Tarta de cumpleaños y refrescos</li>
+                        <li><i class="fas fa-check"></i>Menú adaptado para adultos (Opcional)</li>
+                    </ul>
 
-                <p class="essence-lead">
-                    Desde nuestra apertura en 2006, hemos crecido para convertirnos en el complejo de ocio de referencia
-                    en la comarca.
-                    Nuestra filosofía es simple: ofrecer diversión de calidad a precios accesibles, para que familias,
-                    amigos y empresas encuentren su lugar sin salir de la zona.
-                </p>
-
-                <div class="stats-row">
-                    <div class="stat-group">
-                        <span class="stat-number" id="years-count">0</span>
-                        <span class="stat-label">Años de Historia</span>
+                    <div style="margin-top: 20px;">
+                        <h4 style="font-size: 1rem; margin-bottom: 10px; color: var(--smokey-black);">Condiciones</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 5px;">Mínimo 15 niños.
+                            Reserva 30€. Horario 17:00 - 20:30.</p>
                     </div>
+                </div>
 
-                    <div class="rating-group" id="rating-container-animated">
-                        <div class="stars-container">
-                            <!-- Gray Background Stars -->
-                            <div class="stars-background">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                            </div>
+                <div class="event-pricing-col">
+                    <div class="price-showcase-card">
+                        <span class="price-unit">Precio por niño</span>
+                        <div class="price-tag-large">13<span class="price-tag-currency">€</span></div>
+                        <p style="font-size: 0.95rem; opacity: 0.7; margin-bottom: 20px;">Todo incluido</p>
+                        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+                        <span class="price-unit" style="display:block; margin-bottom: 5px;">Adultos</span>
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--smokey-black);">7,90€</div>
+                        <p style="font-size: 0.85rem; opacity: 0.6; margin-bottom: 0;">(Bebida no incluida)</p>
+                    </div>
+                </div>
+            </div>
 
-                            <!-- Yellow Foreground Stars (Width animated by JS) -->
-                            <div class="stars-foreground" id="star-fill-layer">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                </svg>
+            <!-- 2. Corporate Banner -->
+            <div class="corporate-banner">
+                <div class="corporate-grid-content">
+                    <div>
+                        <span class="section-tag" style="color: rgba(255,255,255,0.7);">EMPRESAS</span>
+                        <h2 class="event-headline-large" style="color: white;">Eventos Corporativos</h2>
+                        <p class="event-lead" style="color: rgba(255,255,255,0.8);">
+                            Fomenta el compañerismo y motiva a tu equipo en un entorno diferente. Ideal para Team
+                            Building, cenas de empresa y reuniones.
+                        </p>
+                        <a href="index.html#contacto" class="btn-primary"
+                            style="margin-top: 20px; border-color: white;"><span>Solicitar Presupuesto</span></a>
+                    </div>
+                    <div>
+                        <div class="corp-badge">
+                            <div class="corp-badge-icon"><i class="fas fa-utensils"></i></div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 5px;">Gastronomía Propia</h4>
+                                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0;">Platos
+                                    tradicionales de alta calidad.</p>
                             </div>
                         </div>
-                        <span class="rating-label">4.1 en Google (998 reseñas)</span>
+                        <div class="corp-badge">
+                            <div class="corp-badge-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 5px;">Salón Privado</h4>
+                                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0;">Proyector y
+                                    equipo de sonido.</p>
+                            </div>
+                        </div>
+                        <div class="corp-badge">
+                            <div class="corp-badge-icon"><i class="fas fa-sliders-h"></i></div>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 5px;">100% Personalizable</h4>
+                                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0;">Adaptado a tu
+                                    presupuesto.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="slider-container fade-up" style="transition-delay: 0.2s;">
-                <div class="slide active">
-                    <img src="assets/interior.webp" alt="Interior Bowling"
-                        style="width: 100%; height: 100%; object-fit: cover;">
+            <!-- 3. Private Events (Grid) -->
+            <div>
+                <div class="section-header" style="margin-bottom: 40px; margin-top: 20px;">
+                    <span class="section-tag">PRIVADO</span>
+                    <h2 class="section-headline" style="font-size: 2.5rem; margin-bottom: 10px;">Comuniones y Privados
+                    </h2>
+                    <p class="event-lead">Celebra momentos únicos con total intimidad.</p>
                 </div>
-                <div class="slide">
-                    <img src="assets/interior-2.webp" alt="Interior Bowling"
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Activities (Fun) Section -->
-    <section id="diversion" class="fun-section">
-
-        <div style="margin-bottom: 60px;">
-            <span class="section-tag">ACTIVIDADES</span>
-            <h2 class="section-headline">Diversión sin límites</h2>
-        </div>
-
-        <div class="activities-grid">
-            <div class="activity-card fade-up">
-                <div class="activity-icon-simple">
-                    <i class="fas fa-bowling-ball"></i>
-                </div>
-                <div class="activity-content">
-                    <h3>Bolera Profesional</h3>
-                    <p>12 pistas de última generación con sistema de puntuación avanzado. Ligas, torneos o diversión
-                        casual.</p>
-                </div>
-            </div>
-
-            <div class="activity-card fade-up" style="transition-delay: 0.1s;">
-                <div class="activity-icon-simple">
-                    <i class="fas fa-microphone-alt"></i>
-                </div>
-                <div class="activity-content">
-                    <h3>Karaoke & Bar</h3>
-                    <p>Más de 5.600 canciones. Escenario profesional, coctelería y una terraza que cobra vida por la
-                        noche.</p>
-                </div>
-            </div>
-
-            <div class="activity-card fade-up" style="transition-delay: 0.2s;">
-                <div class="activity-icon-simple">
-                    <i class="fas fa-child"></i>
-                </div>
-                <div class="activity-content">
-                    <h3>Zona Infantil</h3>
-                    <p>El parque de bolas más grande de la zona. Seguridad y diversión garantizada para los más
-                        pequeños.</p>
-                </div>
-            </div>
-
-            <div class="activity-card fade-up" style="transition-delay: 0.3s;">
-                <div class="activity-icon-simple">
-                    <img src="assets/8-ball.svg" alt="Billar" class="custom-icon-img">
-                </div>
-                <div class="activity-content">
-                    <h3>Zona de Juegos</h3>
-                    <p>Billares profesionales, futbolines de competición y dianas electrónicas. El desafío empieza aquí.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Promotions Section -->
-    <section id="promociones" class="promotions-section">
-
-        <div style="margin-bottom: 60px;">
-            <span class="section-tag">OFERTAS EXCLUSIVAS</span>
-            <h2 class="section-headline" style="color: white; margin-bottom: 40px;">Packs y Promociones</h2>
-        </div>
-
-
-        <div class="promotions-slider">
-            <div class="promotions-track">
-                <div class="promo-card fade-up">
-                    <h3 class="promo-title">Pack Doble Partida</h3>
-                    <p class="promo-subtitle">La opción favorita para grupos de amigos.</p>
-
-                    <div class="promo-price">
-                        11,50 <span class="promo-currency">€</span>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                    <!-- Feature Cards -->
+                    <div style="background: var(--off-white); padding: 30px; border-radius: 12px; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'">
+                        <i class="fas fa-lock text-red" style="font-size: 2rem; margin-bottom: 20px;"></i>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 10px;">Salón Aislado</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">Espacio exclusivo separado
+                            del resto de áreas para tu privacidad.</p>
                     </div>
 
-                    <ul style="list-style: none; color: #ccc;">
-                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 2 Partidas de Bolos</li>
-                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 1 Bebida Incluida</li>
-                    </ul>
-                    <p class="promo-desc">*Precio por persona. Dto 0,50€ en efectivo.</p>
-                </div>
-
-                <div class="promo-card fade-up" style="transition-delay: 0.2s;">
-                    <h3 class="promo-title">Menú Homer</h3>
-                    <p class="promo-subtitle">Cena, bebida y diversión en un solo pack.</p>
-
-                    <div class="promo-price">
-                        13,50 <span class="promo-currency">€</span>
+                    <div style="background: var(--off-white); padding: 30px; border-radius: 12px; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'">
+                        <i class="fas fa-star text-red" style="font-size: 2rem; margin-bottom: 20px;"></i>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 10px;">Experiencia</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">Más de 20 años organizando
+                            bautizos, comuniones y eventos familiares.</p>
                     </div>
 
-                    <ul style="list-style: none; color: #ccc;">
-                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> Cena Completa</li>
-                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 1 Bebida</li>
-                        <li><i class="fas fa-check text-red" style="margin-right: 10px;"></i> 1 Partida de Bolos</li>
-                    </ul>
-                    <p class="promo-desc">*Precio por persona. Dto 0,50€ en efectivo.</p>
+                    <div style="background: var(--off-white); padding: 30px; border-radius: 12px; transition: transform 0.3s;"
+                        onmouseover="this.style.transform='translateY(-5px)'"
+                        onmouseout="this.style.transform='translateY(0)'">
+                        <i class="fas fa-magic text-red" style="font-size: 2rem; margin-bottom: 20px;"></i>
+                        <h3 style="font-size: 1.25rem; margin-bottom: 10px;">A tu medida</h3>
+                        <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">Flexibilidad total en menús,
+                            decoración y horarios.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="promo-controls">
-                <button id="promo-next-btn" class="btn-circle-arrow"><i class="fas fa-arrow-right"></i></button>
-            </div>
-        </div>
-        <!-- Mobile nav for promos can be hidden or adapted via CSS grid scroll if needed, but grid works well in mobile column -->
-    </section>
-
-    <!-- Events Section -->
-    <section id="eventos" class="events-section">
-        <div style="margin-bottom: 60px;">
-            <span class="section-tag">EVENTOS</span>
-            <h2 class="section-headline">Tus eventos, a otro nivel.</h2>
-        </div>
-
-        <div class="events-list">
-            <div class="event-item fade-up">
-                <div class="event-icon"><i class="fas fa-birthday-cake"></i></div>
-                <div class="event-details">
-                    <h3>Cumpleaños Infantiles</h3>
-                    <p>Parque de bolas, merienda y tarta. Todo organizado para padres, diversión total para niños.</p>
-                </div>
-                <div class="event-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-
-            <div class="event-item fade-up" style="transition-delay: 0.1s;">
-                <div class="event-icon"><i class="fas fa-briefcase"></i></div>
-                <div class="event-details">
-                    <h3>Eventos Corporativos</h3>
-                    <p>Team building y cenas de empresa. Fomenta el compañerismo en un ambiente distendido.</p>
-                </div>
-                <div class="event-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-
-            <div class="event-item fade-up" style="transition-delay: 0.2s;">
-                <div class="event-icon"><i class="fas fa-glass-cheers"></i></div>
-                <div class="event-details">
-                    <h3>Comuniones y Privados</h3>
-                    <p>Espacios reservados y menús a medida para tus celebraciones familiares más importantes.</p>
-                </div>
-                <div class="event-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer (Reused) -->
     <footer id="contacto">
         <div class="footer-grid">
             <div class="footer-info">
-                <h4>Información y Reservas</h4>
+                <h4>Atención al Cliente</h4>
                 <div class="footer-table-container">
                     <table class="footer-table">
                         <tr>
@@ -334,7 +220,7 @@
 
         <div class="footer-bottom">
             <p>© 2026 Canet Bowling<br>
-                <span style="text-decoration: underline;">Aviso legal y preguntas frecuentes</span>
+                <span style="font-size: 0.75rem; text-decoration: underline;">Aviso legal y preguntas frecuentes</span>
             </p>
         </div>
     </footer>
@@ -343,16 +229,51 @@
     <div id="mobile-menu-overlay">
         <div class="mobile-menu-close" id="mobile-menu-close"><i class="fas fa-times"></i></div>
         <div class="mobile-links">
-            <a href="#diversion" class="mobile-link">Actividades</a>
-            <a href="#eventos" class="mobile-link">Eventos</a>
-            <a href="#promociones" class="mobile-link">Menú</a>
+            <a href="index.html#diversion" class="mobile-link">Actividades</a>
+            <a href="index.html#eventos" class="mobile-link">Eventos</a>
+            <a href="index.html#promociones" class="mobile-link">Menú</a>
             <a href="#contacto" class="mobile-link">Contacto</a>
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        // Simple script for hamburger menu (reused)
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileMenuOverlay.classList.add('active');
+            });
+        }
+
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenuOverlay.classList.remove('active');
+            });
+        }
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuOverlay.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 
 </html>
