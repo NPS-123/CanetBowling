@@ -109,6 +109,50 @@ button {
     transform: scale(1.02);
 }
 
+/* Utility for image icons */
+.custom-icon-img {
+    width: 2.5rem;
+    height: auto;
+    filter: invert(13%) sepia(94%) saturate(7466%) hue-rotate(357deg) brightness(94%) contrast(116%);
+    /* Matches primary red */
+    padding: 8px;
+    /* Added padding to reduce visual size */
+}
+
+/* Animated Star Rating Components */
+.stars-container {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 0px;
+    margin-bottom: 5px;
+    width: 90px;
+    height: 18px;
+}
+
+.stars-background,
+.stars-foreground {
+    display: flex;
+    color: #e0e0e0;
+}
+
+.stars-foreground {
+    color: #FFC107;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0%;
+    white-space: nowrap;
+}
+
+.stars-container svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
 /* =========================================
    3. NAVIGATION
    ========================================= */
@@ -118,17 +162,16 @@ nav {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 20px var(--desktop-margin);
+    padding: 15px var(--desktop-margin);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background-color 0.3s ease, padding 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 nav.scrolled {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    padding: 15px var(--desktop-margin);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -213,18 +256,6 @@ nav.scrolled .hamburger-menu {
     color: var(--smokey-black);
 }
 
-@media (max-width: 1024px) {
-    .hamburger-menu {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        /* Hide default links on tablet/mobile */
-    }
-}
-
-
 /* =========================================
    4. HERO SECTION
    ========================================= */
@@ -287,9 +318,10 @@ nav.scrolled .hamburger-menu {
 .hero-subtitle {
     font-size: clamp(1.1rem, 2vw, 1.25rem);
     margin-bottom: 2.5rem;
-    opacity: 0.9;
     font-weight: 400;
     max-width: 90%;
+    text-wrap: pretty;
+    /* Prevent orphans */
     opacity: 0;
     /* JS Fade in */
     transform: translateY(20px);
@@ -499,7 +531,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 1s ease;
+    transition: opacity 1.5s ease;
     opacity: 0;
 }
 
@@ -550,7 +582,6 @@ section {
 }
 
 .activity-card {
-    background: transparent;
     /* Clean tile look */
     background: var(--pure-white);
     padding: 35px;
@@ -566,7 +597,7 @@ section {
 
 .activity-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
     border-color: rgba(253, 0, 1, 0.1);
 }
 
@@ -605,28 +636,8 @@ section {
     color: var(--text-muted);
     margin-bottom: 0;
     line-height: 1.6;
-}
-
-/* Custom Image Icon (8-ball) needs to be red now */
-.custom-icon-img {
-    width: 2.5rem;
-    height: auto;
-    filter: invert(13%) sepia(94%) saturate(7466%) hue-rotate(357deg) brightness(94%) contrast(116%);
-    /* Forces Red */
-}
-
-@media (max-width: 900px) {
-    .activities-grid {
-        grid-template-columns: 1fr;
-        /* Stack on mobile/tablet */
-    }
-}
-
-@media (max-width: 768px) {
-    .essence-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+    text-wrap: pretty;
+    /* Prevent orphans */
 }
 
 /* =========================================
@@ -673,9 +684,20 @@ section {
 }
 
 .btn-circle-arrow:hover {
-    background: var(--primary-red);
     border-color: var(--primary-red);
 }
+
+
+
+.btn-circle-arrow i {
+    transition: transform 0.3s ease;
+}
+
+.btn-circle-arrow.rotate-left i {
+    transform: rotate(180deg);
+}
+
+
 
 .promo-card {
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -721,32 +743,10 @@ section {
     font-style: italic;
 }
 
-@media (max-width: 900px) {
-    .promotions-track {
-        display: flex;
-        grid-template-columns: none;
-        gap: 0;
-        width: 100%;
-        /* Track will be translated */
-    }
-
-    .promo-card {
-        min-width: 100%;
-    }
-
-    .promo-controls {
-        display: flex;
-        /* Visible on mobile */
-        justify-content: center;
-        margin-top: 30px;
-    }
-}
-
 /* =========================================
    9. EVENTS (List Layout)
    ========================================= */
 .events-section {
-    padding-bottom: 0;
     background-color: #F5F5F7;
     padding-bottom: 120px;
     /* Add padding bottom since we are adding background */
@@ -769,7 +769,7 @@ section {
 
 .event-item:hover {
     transform: translateX(10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
     border-color: rgba(253, 0, 1, 0.1);
 }
 
@@ -797,6 +797,8 @@ section {
     font-size: 1.05rem;
     color: var(--text-muted);
     margin-bottom: 0;
+    text-wrap: pretty;
+    /* Prevent orphans */
 }
 
 .event-arrow {
@@ -876,7 +878,6 @@ footer {
 .map-container iframe {
     width: 100%;
     height: 350px;
-    /* filter: grayscale(100%); Removed */
     transition: filter 0.3s ease;
 }
 
@@ -887,19 +888,16 @@ footer {
 .footer-bottom {
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 40px;
+    padding-top: 30px;
+    /* Tightened spacing */
     font-size: 0.9rem;
     color: #666;
 }
 
-@media (max-width: 900px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .socials {
-        justify-content: center;
-    }
+.footer-bottom p {
+    font-size: 0.8rem;
+    /* Decreased size */
+    margin-bottom: 0;
 }
 
 /* =========================================
@@ -938,7 +936,6 @@ footer {
     cursor: pointer;
 }
 
-/* Make "Contacto" (last link) look like a CTA */
 /* Make "Contacto" (last link) look like a GHOST CTA detailed by user */
 .mobile-links .mobile-link:last-child {
     background-color: transparent;
@@ -955,50 +952,6 @@ footer {
 .mobile-links .mobile-link:last-child:hover {
     background-color: transparent;
     color: var(--primary-red) !important;
-}
-
-@media (max-width: 900px) {
-
-    /* Navbar Adjustment */
-    nav {
-        padding: 15px 20px;
-        /* Reduced padding */
-    }
-
-    .logo {
-        height: 35px;
-        /* Smaller logo */
-    }
-
-    /* Activities Icons */
-    .activity-icon-simple {
-        margin-right: 15px;
-        /* Reduce gap if horizontal, or just size */
-        width: 50px;
-        height: 50px;
-    }
-
-    .activity-icon-simple i {
-        font-size: 2rem;
-    }
-
-    .activity-card {
-        padding: 25px;
-        /* Tighter padding */
-        gap: 15px;
-    }
-
-    /* Event Icons */
-    .event-icon {
-        width: 50px;
-        height: 50px;
-        font-size: 2rem;
-        margin-right: 15px;
-    }
-
-    .event-item {
-        padding: 25px;
-    }
 }
 
 .mobile-links {
@@ -1020,44 +973,422 @@ footer {
     color: var(--primary-red) !important;
 }
 
-/* Utility for image icons */
-.custom-icon-img {
-    width: 2.5rem;
-    height: auto;
-    filter: invert(13%) sepia(94%) saturate(7466%) hue-rotate(357deg) brightness(94%) contrast(116%);
-    /* Matches primary red */
+/* =========================================
+   12. MEDIA QUERIES
+   ========================================= */
+
+@media (max-width: 1024px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        /* Hide default links on tablet/mobile */
+    }
 }
 
-/* Animated Star Rating Components */
-.stars-container {
-    position: relative;
-    display: inline-flex;
-    vertical-align: middle;
-    margin-right: 0px;
-    margin-bottom: 5px;
-    width: 90px;
-    height: 18px;
+@media (max-width: 768px) {
+    .essence-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
 }
 
-.stars-background,
-.stars-foreground {
+@media (max-width: 767px) {
+
+    /* Navbar Adjustment */
+    nav {
+        padding: 10px var(--desktop-margin);
+        /* Reduced padding matching sections */
+    }
+
+    .logo {
+        height: 30px;
+        /* Smaller logo */
+    }
+
+    /* Reduce section spacing on mobile */
+    section {
+        padding: 60px var(--desktop-margin);
+    }
+
+    /* Keep hero unchanged */
+    .hero {
+        padding: 0 var(--desktop-margin);
+    }
+
+    /* Override events section bottom padding */
+    .events-section {
+        padding-bottom: 60px;
+    }
+
+    /* Override footer top padding */
+    footer {
+        padding-top: 60px;
+    }
+
+    /* Activities Icons Grid Layout (Mobile Only) */
+    .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        /* Match event cards spacing */
+        /* Stack on mobile/tablet */
+    }
+
+    .activity-card {
+        padding: 20px;
+        gap: 0;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "icon title"
+            "desc desc";
+        align-items: center;
+    }
+
+    .activity-icon-simple {
+        grid-area: icon;
+        margin-right: 10px;
+        /* Reduced margin */
+        width: 30px;
+        /* Reduced size */
+        height: 30px;
+    }
+
+    .activity-icon-simple i {
+        font-size: 1.5rem;
+        /* Reduced font size */
+    }
+
+    .activity-content {
+        display: contents;
+    }
+
+    .activity-content h3 {
+        grid-area: title;
+        margin-bottom: 0;
+        font-size: 1.3rem;
+        align-self: center;
+    }
+
+    .activity-content p {
+        grid-area: desc;
+        grid-column: 1 / -1;
+        margin-top: 10px;
+        /* Reduced gap */
+        line-height: 1.4;
+    }
+
+    /* Event Items Grid Layout (Mobile Only) - Updated for Right Col Arrow */
+    .event-item {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas:
+            "icon title arrow"
+            "desc desc arrow";
+        align-items: center;
+        gap: 0;
+    }
+
+    .event-icon {
+        grid-area: icon;
+        width: 30px;
+        /* Reduced size */
+        height: 30px;
+        font-size: 1.5rem;
+        margin-right: 10px;
+    }
+
+    .event-details {
+        display: contents;
+    }
+
+    .event-details h3 {
+        grid-area: title;
+        margin-bottom: 0;
+        align-self: center;
+        font-size: 1.3rem;
+    }
+
+    .event-details p {
+        grid-area: desc;
+        grid-column: 1 / 3;
+        /* Matches Icon + Title width */
+        margin-top: 10px;
+        line-height: 1.4;
+    }
+
+    .event-arrow {
+        grid-area: arrow;
+        margin-left: 10px;
+        align-self: center;
+        /* Centered vertical height */
+        justify-self: end;
+        font-size: 0.9rem;
+        /* Smaller arrow */
+    }
+
+    .event-item:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Promotions */
+    .promotions-track {
+        display: flex;
+        grid-template-columns: none;
+        gap: 0;
+        width: 100%;
+        /* Track will be translated */
+    }
+
+    /* Remove hover effects on mobile */
+    .btn-circle-arrow:hover {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.3);
+        color: white;
+    }
+
+    .promo-card {
+        min-width: 100%;
+    }
+
+    .promo-controls {
+        display: flex;
+        /* Visible on mobile */
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    /* Discussion: Footer Grid */
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+}
+
+/* Mobile Landscape Adjustment: Fix Logo Clipping Header */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        align-items: flex-end;
+        /* Align closer to bottom to avoid top nav */
+        padding-top: 80px;
+        /* Push content down to clear fixed navbar */
+        padding-bottom: 40px;
+        height: auto;
+        /* Allow scrolling if content exceeds height */
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        padding-top: 20px;
+        margin-top: 60px;
+    }
+
+    .logo {
+        height: 35px;
+        /* Ensure small logo */
+    }
+
+    .hero-title {
+        margin-bottom: 0.5rem;
+        /* Tighter margins */
+        font-size: 2.5rem;
+        /* Slightly smaller font to fit */
+    }
+
+    .hero-subtitle {
+        margin-bottom: 1rem;
+        display: none;
+        /* Often helpful to hide subtitle in landscape if space is very tight, but user didn't ask. keeping it but minimizing margins */
+        display: block;
+    }
+}
+
+/* =========================================
+   10. EVENTS PAGE (Detailed Layout)
+   ========================================= */
+.events-page-wrapper {
     display: flex;
-    color: #e0e0e0;
+    flex-direction: column;
+    gap: 100px;
 }
 
-.stars-foreground {
-    color: #FFC107;
+.event-details-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Reverse layout for visual interest if needed, 
+   but standard left-text right-card is often cleaner for scanning */
+.event-details-row.reverse {
+    direction: rtl;
+    /* Simple way, or use order */
+}
+
+.event-details-row.reverse>* {
+    direction: ltr;
+}
+
+.event-text-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-headline-large {
+    font-size: 2.5rem;
+    color: var(--smokey-black);
+    margin-bottom: 20px;
+    line-height: 1.1;
+    position: relative;
+    font-weight: 800;
+}
+
+.event-lead {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Styled Feature List */
+.feature-list-styled {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.feature-list-styled li {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 12px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.feature-list-styled li i {
+    color: var(--primary-red);
+    margin-right: 15px;
+    font-size: 0.9rem;
+    transform: translateY(2px);
+}
+
+/* Pricing Card styling */
+.price-showcase-card {
+    background: var(--pure-white);
+    border: 1px solid #eee;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    /* Soft, premium shadow */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+}
+
+.price-showcase-card::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
-    overflow: hidden;
-    width: 0%;
-    white-space: nowrap;
+    width: 100%;
+    height: 6px;
+    background: var(--primary-red);
 }
 
-.stars-container svg {
-    width: 18px;
-    height: 18px;
-    fill: currentColor;
-    flex-shrink: 0;
+.price-showcase-card:hover {
+    transform: translateY(-5px);
+}
+
+.price-tag-large {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--smokey-black);
+    line-height: 1;
+    margin: 10px 0;
+}
+
+.price-tag-currency {
+    font-size: 1.5rem;
+    vertical-align: super;
+}
+
+.price-unit {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Corporate Section specific */
+.corporate-banner {
+    background-color: var(--smokey-black);
+    color: var(--text-white);
+    padding: 80px 60px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+/* Decorative circle for corporate */
+.corporate-banner::after {
+    content: '';
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 20px solid rgba(255, 255, 255, 0.03);
+    z-index: 1;
+}
+
+.corporate-grid-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Mini feature badges for corporate */
+.corp-badge {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.corp-badge-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: rgba(253, 0, 1, 0.1);
+    color: var(--primary-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile responsive for new elements */
+@media (max-width: 991px) {
+
+    .event-details-row,
+    .corporate-grid-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .price-showcase-card {
+        padding: 30px;
+    }
 }
