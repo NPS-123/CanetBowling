@@ -81,8 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
             slides[currentSlide].classList.add('active');
         }
 
-        // Auto slide every 4 seconds
-        setInterval(nextSlide, 4000);
+        // Auto slide every 6 seconds
+        setInterval(nextSlide, 6000);
     }
 
     // =========================================
@@ -209,6 +209,13 @@ document.addEventListener("DOMContentLoaded", () => {
             currentPromoIndex = (currentPromoIndex + 1) % totalPromos;
             const translateX = -(currentPromoIndex * 100);
             promoTrack.style.transform = `translateX(${translateX}%)`;
+
+            // Toggle Arrow Direction
+            if (currentPromoIndex === 1) {
+                promoNextBtn.classList.add('rotate-left');
+            } else {
+                promoNextBtn.classList.remove('rotate-left');
+            }
         });
     }
 });
