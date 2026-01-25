@@ -218,4 +218,26 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // =========================================
+    // 9. MOBILE PROMO CARD INTERACTION
+    // =========================================
+    const promoCards = document.querySelectorAll('.promo-card');
+
+    if (promoCards.length > 0) {
+        promoCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Check if we are on the mobile breakpoint where only one card is shown
+                if (window.matchMedia('(max-width: 767px)').matches) {
+                    // Change border color to primary red
+                    card.style.borderColor = 'var(--primary-red)';
+
+                    // Revert after 0.75 seconds
+                    setTimeout(() => {
+                        card.style.borderColor = ''; // Reverts to CSS default
+                    }, 750);
+                }
+            });
+        });
+    }
 });
